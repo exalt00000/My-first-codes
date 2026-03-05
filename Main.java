@@ -1,0 +1,19 @@
+//LeetCode75 605. Can Place Flower.
+class Main {
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        int counter= 0;
+        for(int i=0; i<flowerbed.length; i++){
+            if(flowerbed[i]==0){
+                boolean leftempty = (i==0) || flowerbed[i-1]==0;
+                boolean rightempty = (i==flowerbed.length-1) || flowerbed[i+1]==0;
+                if(leftempty && rightempty){
+                    flowerbed[i] = 1;
+                    counter++;
+                }
+
+            }
+        }
+        return counter >= n;
+        
+    }
+}
